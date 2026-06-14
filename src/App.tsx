@@ -31,7 +31,7 @@ function App() {
   const processVideos = [
     { url: malevideo, title: "Kreativ proces" },
     { url: containerVideo, title: "ContainerKUNST" },
-    { url: peerVideo, title: "Peer parner" }
+    { url: peerVideo, title: "Peer-Partnerskabet" }
   ]
 
   return (
@@ -73,28 +73,35 @@ function App() {
 
       <section className="gallery">
         <h2 style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-color)' }}>Udvalgte Værker</h2>
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-          }}
-          className="mySwiper"
-        >
-          {galleryImages.map((img, index) => (
-            <SwiperSlide key={index}>
-              <div className="gallery-item" onClick={() => setSelectedImage(img.url)} style={{ cursor: 'pointer' }}>
-                <img src={img.url} alt={img.title} />
-                <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{img.title}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="swiper-container-relative" style={{ position: 'relative' }}>
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            className="mySwiper"
+          >
+            {galleryImages.map((img, index) => (
+              <SwiperSlide key={index}>
+                <div className="gallery-item" onClick={() => setSelectedImage(img.url)} style={{ cursor: 'pointer' }}>
+                  <img src={img.url} alt={img.title} loading="lazy" />
+                  <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{img.title}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
+        </div>
       </section>
 
       <section className="videos" style={{ padding: '8rem 2rem' }}>
@@ -105,9 +112,10 @@ function App() {
               <video 
                 src={video.url} 
                 controls 
-                style={{ width: '100%', borderRadius: 'inherit', display: 'block' }}
+                style={{ width: '100%', borderRadius: 'inherit', display: 'block', backgroundColor: '#000' }}
                 muted
                 loop
+                preload="metadata"
               />
               <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{video.title}</p>
             </div>

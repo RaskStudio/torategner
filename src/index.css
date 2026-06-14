@@ -33,14 +33,14 @@ h1, h2, h3 {
 }
 
 section {
-  padding: 8rem 2rem;
+  padding: 5rem 2rem; /* Reduceret fra 8rem */
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .hero {
   text-align: center;
-  padding: 10rem 2rem;
+  padding: 6rem 2rem; /* Reduceret fra 10rem */
 }
 
 .hero h1 {
@@ -70,6 +70,7 @@ section {
   max-width: 1100px;
   margin: 0 auto;
   overflow: hidden;
+  padding-bottom: 2rem;
 }
 
 .gallery-item {
@@ -100,8 +101,8 @@ section.info {
   color: white;
   max-width: none;
   width: 100%;
-  margin: 4rem 0;
-  padding: 10rem 2rem;
+  margin: 2rem 0;
+  padding: 6rem 2rem; /* Reduceret fra 10rem */
   border: none;
   box-shadow: none;
   border-radius: 0;
@@ -124,8 +125,8 @@ section.info {
 .contact {
   text-align: center;
   background: #fff;
-  margin: 6rem auto;
-  padding: 6rem 3rem;
+  margin: 4rem auto;
+  padding: 4rem 3rem; /* Reduceret fra 6rem */
   border-radius: 250px 15px 100px 15px/15px 200px 15px 250px;
   border: 5px solid var(--accent-color);
   box-shadow: 20px 20px 0px var(--secondary-color);
@@ -161,14 +162,14 @@ section.info {
 
 /* Swiper Custom Styles */
 .swiper {
-  padding-bottom: 8rem !important; /* Mere plads i bunden til knapper */
-  overflow: visible !important; /* Sørger for at skygger og knapper ikke bliver klippet */
+  padding-bottom: 8rem !important;
+  overflow: visible !important;
 }
 
 .swiper-button-next, .swiper-button-prev {
   color: var(--accent-color) !important;
   top: auto !important;
-  bottom: 3.8rem !important; /* Finjusteret til at ramme linjen */
+  bottom: 3.8rem !important;
   width: 40px !important;
   height: 40px !important;
   display: flex !important;
@@ -194,7 +195,7 @@ section.info {
 }
 
 .swiper-pagination {
-  bottom: 4rem !important; /* Prikkerne sidder her */
+  bottom: 4rem !important;
   height: 40px !important;
   display: flex !important;
   align-items: center;
@@ -258,11 +259,11 @@ section.info {
 
 @media (max-width: 768px) {
   section {
-    padding: 4rem 1.25rem;
+    padding: 3rem 1.25rem; /* Reduceret fra 4rem */
   }
   
   .hero {
-    padding: 5rem 1.25rem;
+    padding: 4rem 1.25rem; /* Reduceret fra 5rem */
   }
 
   .hero h1 {
@@ -275,11 +276,11 @@ section.info {
   }
 
   .info {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem; /* Reduceret fra 4rem */
   }
 
   .contact {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem; /* Reduceret fra 4rem */
   }
 
   .contact a {
