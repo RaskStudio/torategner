@@ -29,7 +29,7 @@ function App() {
   ]
 
   const processVideos = [
-    { url: malevideo, title: "Kreativ proces" },
+    { url: malevideo, title: "Her bliver en plakat til" },
     { url: containerVideo, title: "ContainerKUNST" },
     { url: peerVideo, title: "Peer-Partnerskabet" }
   ]
@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="app">
       <div className="sticky-banner">
-        MIDLERTIDIG SIDE – DEN FULDE OPLEVELSE ER PÅ VEJ! 🎨
+        Midlertidig side – jeg arbejder på den fulde oplevelse 🎨
       </div>
 
       <section className="hero">
@@ -50,12 +50,12 @@ function App() {
             />
           </div>
           <h1>Tóra Tegner</h1>
-          <p className="hero-sub">Håndtegnede fortællinger, der danser på papiret</p>
+          <p className="hero-sub">Personlige krusedulle-plakater</p>
           <p className="hero-text">
-            Glem alt om kedelige lige linjer. Her får du personlige krusedulle-vibe, der bringer liv og skæve smil ind i dit hjem.
+            Jeg tegner personlige plakater på særbestilling. Det er skævt, intuitivt og aldrig helt som man forventer – præcis som en god krusedulle skal være.
           </p>
           <div style={{ marginTop: '3rem' }}>
-            <p className="social-label">Følg med her</p>
+            <p className="social-label">Se mere her</p>
             <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-icon">
               <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -69,7 +69,7 @@ function App() {
 
       <section className="gallery-section">
         <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Udvalgte Værker</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Udvalgte plakater</h2>
           <div className="swiper-container-relative" style={{ position: 'relative' }}>
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
@@ -104,7 +104,7 @@ function App() {
 
       <section className="videos-section">
         <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Bag Om Stregen</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Lidt fra processen</h2>
           <div className="video-grid">
             {processVideos.map((video, index) => (
               <div key={index} className="gallery-item" style={{ padding: '1rem' }}>
@@ -125,11 +125,9 @@ function App() {
 
       <section className="info-section">
         <div className="section-content" style={{ textAlign: 'center' }}>
-          <h2>Giv dine vægge en personlig krølle</h2>
+          <h2>Bag om stregen</h2>
           <p className="info-text">
-            En Tóra Tegner plakat er ikke bare en tegning – det er en legende fortolkning af alt det, der betyder noget for dig. 
-            Med min intuitive krusedulle-streg forvandler jeg minder, følelser og drømme til unikke værker, der aldrig bliver kedelige at se på. 
-            Hver streg er særbestilt og tegnet med kærlighed til det uperfekte og det helt unikke.
+            Jeg tegner altid meget intuitivt. Mine plakater er særbestillinger, hvor jeg prøver at fange en følelse eller en fortælling gennem min streg. For mig er det det uperfekte og de skæve linjer, der gør en tegning unik og giver den personlighed.
           </p>
         </div>
       </section>
@@ -137,13 +135,13 @@ function App() {
       <section className="contact-section">
         <div className="section-content">
           <div className="contact-box">
-            <h2>Skal vi skabe magi sammen?</h2>
-            <p>Hver bestilling starter med en god snak om dine ønsker.</p>
+            <h2>Skal jeg tegne noget til dig?</h2>
+            <p>Hver plakat starter med en lille snak om, hvad du har i tankerne.</p>
             <p style={{ margin: '1.5rem 0' }}>
-              Send en krusedulle-hilsen til: <br />
-              <a href="mailto:hej@torategner.dk">hej@torategner.dk</a>
+              Send mig en mail på: <br />
+              <a href="mailto:tegnertora@gmail.com">tegnertora@gmail.com</a>
             </p>
-            <p>Hop ind i mit kreative univers på Instagram: <strong>@tora_tegner</strong></p>
+            <p>Eller fang mig på Instagram: <strong>@tora_tegner</strong></p>
           </div>
         </div>
       </section>
