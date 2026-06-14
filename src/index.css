@@ -16,7 +16,7 @@
 
 @keyframes drawIn {
   from { width: 0; opacity: 0; }
-  to { width: 104%; opacity: 0.3; }
+  to { width: 100%; opacity: 0.3; }
 }
 
 * {
@@ -31,7 +31,15 @@ body {
   font-family: var(--font-body);
   line-height: 1.8;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 h1, h2, h3 {
@@ -74,8 +82,8 @@ section {
   content: '';
   position: absolute;
   bottom: 0;
-  left: -2%;
-  width: 104%;
+  left: 0;
+  width: 100%;
   height: 20px;
   background: var(--secondary-color);
   z-index: -1;
@@ -266,7 +274,7 @@ section {
 /* Swiper */
 .swiper {
   padding-bottom: 8rem !important;
-  overflow: visible !important;
+  width: 100%;
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -306,7 +314,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   display: flex;

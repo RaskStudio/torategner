@@ -109,7 +109,7 @@ function App() {
             {processVideos.map((video, index) => (
               <div key={index} className="gallery-item" style={{ padding: '1rem' }}>
                 <video 
-                  src={video.url} 
+                  src={`${video.url}#t=0.001`} 
                   controls 
                   style={{ width: '100%', borderRadius: 'inherit', display: 'block', backgroundColor: '#000' }}
                   muted
