@@ -47,7 +47,7 @@ section {
 
 /* Sektion Farver & Specifik Styling */
 .hero {
-  background-color: var(--bg-color);
+  background-color: var(--bg-color); /* Gul */
   text-align: center;
   padding: 8rem 0;
 }
@@ -68,31 +68,45 @@ section {
   left: -2%;
   width: 104%;
   height: 20px;
-  background: var(--accent-color);
+  background: var(--secondary-color); /* Blå understregning på gul */
   z-index: -1;
   border-radius: 50%;
   opacity: 0.3;
 }
 
 .gallery-section {
-  background-color: #ffffff; /* Hvid */
-}
-
-.videos-section {
   background-color: var(--secondary-color); /* Blå */
   color: white;
 }
 
-.videos-section h2 {
+.gallery-section h2 {
   color: white;
 }
 
+.gallery-section .gallery-item p {
+  color: var(--accent-color) !important;
+}
+
+.videos-section {
+  background-color: var(--bg-color); /* Gul */
+  color: var(--text-color);
+}
+
+.videos-section h2 {
+  color: var(--text-color);
+}
+
 .info-section {
-  background-color: #fdfaf3; /* Off-white */
+  background-color: var(--secondary-color); /* Blå */
+  color: white;
+}
+
+.info-section h2 {
+  color: white;
 }
 
 .contact-section {
-  background-color: var(--accent-color); /* Rød */
+  background-color: var(--accent-color); /* Orange/Rød */
   color: white;
   padding-bottom: 4rem;
 }
@@ -173,7 +187,7 @@ section {
 }
 
 .swiper-button-next, .swiper-button-prev {
-  color: var(--accent-color) !important;
+  color: var(--highlight-color) !important; /* Hvid på blå baggrund */
   top: auto !important;
   bottom: 3.8rem !important;
   width: 40px !important;
@@ -206,6 +220,10 @@ section {
   display: flex !important;
   align-items: center;
   justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.5) !important;
 }
 
 .swiper-pagination-bullet-active {
