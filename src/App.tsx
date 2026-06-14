@@ -18,6 +18,12 @@ import malevideo from './assets/Malevideo.mp4'
 import containerVideo from './assets/ContainerKUNST video.mp4'
 import peerVideo from './assets/Peer parner video.mp4'
 
+// Import ikoner
+import instagramIkon from './assets/instagram_ikon.png'
+import mailIkon from './assets/mail_ikon.png'
+import linkedinIkon from './assets/linkedin_ikon.png'
+import phoneIkon from './assets/phone_ikon.png'
+
 function App() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -57,11 +63,7 @@ function App() {
           <div style={{ marginTop: '3rem' }}>
             <p className="social-label">Se mere her</p>
             <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
+              <img src={instagramIkon} alt="Instagram" style={{ width: '60px', height: '60px', display: 'block', margin: '0 auto' }} />
             </a>
           </div>
         </div>
@@ -136,12 +138,31 @@ function App() {
         <div className="section-content">
           <div className="contact-box">
             <h2>Skal jeg tegne noget til dig?</h2>
-            <p>Hver plakat starter med en lille snak om, hvad du har i tankerne.</p>
-            <p style={{ margin: '1.5rem 0' }}>
-              Send mig en mail på: <br />
-              <a href="mailto:tegnertora@gmail.com">tegnertora@gmail.com</a>
+            <p style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '1.1rem' }}>
+              Hver plakat starter med en snak om dine ønsker og idéer. Ræk ud til mig her:
             </p>
-            <p>Eller fang mig på Instagram: <strong>@tora_tegner</strong></p>
+            
+            <div style={{ marginTop: '1rem' }}>
+              <a href="mailto:tegnertora@gmail.com" className="contact-row">
+                <img src={mailIkon} alt="Mail" />
+                <span>tegnertora@gmail.com</span>
+              </a>
+
+              <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="contact-row">
+                <img src={instagramIkon} alt="Instagram" />
+                <span>@tora_tegner</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/annatora/" target="_blank" rel="noopener noreferrer" className="contact-row">
+                <img src={linkedinIkon} alt="LinkedIn" />
+                <span>Anna Tora Holm Lund</span>
+              </a>
+
+              <a href="tel:+4524981587" className="contact-row">
+                <img src={phoneIkon} alt="Telefon" />
+                <span>+45 24 98 15 87</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

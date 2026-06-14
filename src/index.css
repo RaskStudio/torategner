@@ -1,7 +1,8 @@
 :root {
   --bg-color: #eed18f;
   --text-color: #1e272e;
-  --accent-color: #f07700;
+  --accent-color: #9d2a2a; /* Den dybe røde */
+  --orange-color: #f07700; /* Den originale orange */
   --secondary-color: #808bac;
   --highlight-color: #ffffff;
   --font-body: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -114,7 +115,7 @@ section {
   object-fit: cover;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   border: 4px solid var(--text-color);
-  box-shadow: 15px 15px 0px var(--secondary-color);
+  box-shadow: 15px 15px 0px var(--orange-color); /* Bruger orange her */
   animation: float 4s ease-in-out infinite;
 }
 
@@ -160,7 +161,7 @@ section {
 
 /* Kontakt Sektion */
 .contact-section {
-  background-color: var(--accent-color);
+  background-color: var(--orange-color); /* Orange baggrund nederst */
   color: white;
   padding-bottom: 4rem;
 }
@@ -170,39 +171,46 @@ section {
 }
 
 .contact-box {
-  text-align: center;
+  text-align: left; /* Venstrestillet indhold for rows */
   background: #fff;
   color: var(--text-color);
   margin: 2rem auto;
   padding: 4rem 3rem;
-  border-radius: 250px 15px 100px 15px/15px 200px 15px 250px;
+  border-radius: 40px 15px 35px 20px;
   border: 5px solid var(--text-color);
   box-shadow: 20px 20px 0px var(--secondary-color);
   max-width: 800px;
-  transition: transform 0.3s ease;
-}
-
-.contact-box:hover {
-  transform: scale(1.02);
 }
 
 .contact-box h2 {
-  color: var(--text-color) !important;
+  color: var(--accent-color) !important; /* Dyb rød overskrift i hvid boks */
+  text-align: center;
 }
 
-.contact-box a {
-  color: var(--accent-color);
-  font-weight: 900;
-  font-size: 2rem;
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
   text-decoration: none;
-  border-bottom: 6px dashed var(--secondary-color);
-  padding: 0 0.5rem;
-  transition: all 0.3s;
+  color: var(--text-color);
+  transition: transform 0.2s;
 }
 
-.contact-box a:hover {
-  background: var(--accent-color);
-  color: white;
+.contact-row:hover {
+  transform: translateX(10px);
+}
+
+.contact-row img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.contact-row span {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--accent-color); /* Den dybe røde på teksten */
 }
 
 /* Komponenter */
@@ -211,7 +219,7 @@ section {
   padding: 1.5rem;
   margin: 1rem;
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; 
-  box-shadow: 12px 12px 0px var(--accent-color);
+  box-shadow: 12px 12px 0px var(--orange-color); /* Orange skygge */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 4px solid var(--text-color);
   color: var(--text-color) !important;
@@ -262,13 +270,11 @@ section {
 
 .social-icon {
   display: inline-block;
-  transition: transform 0.3s, color 0.3s;
-  color: var(--accent-color);
+  transition: transform 0.3s;
 }
 
 .social-icon:hover {
   transform: scale(1.2) rotate(5deg);
-  color: var(--secondary-color);
 }
 
 /* Swiper */
@@ -307,7 +313,7 @@ section {
 }
 
 .swiper-pagination-bullet { background: rgba(255,255,255,0.5) !important; }
-.swiper-pagination-bullet-active { background: var(--accent-color) !important; }
+.swiper-pagination-bullet-active { background: var(--orange-color) !important; }
 
 /* Lightbox */
 .lightbox {
@@ -352,7 +358,7 @@ section {
 }
 
 .footer-custom {
-  background-color: var(--accent-color);
+  background-color: var(--orange-color);
   color: white;
   text-align: center;
   padding: 2rem;
@@ -368,7 +374,7 @@ section {
   .hero-sub { font-size: 1.4rem; }
   .gallery-item img { height: 300px; }
   .contact-box { padding: 3rem 1.5rem; margin: 0 1rem; }
-  .contact-box a { font-size: 1.4rem; word-break: break-all; }
+  .contact-row span { font-size: 1.1rem; }
   .swiper-button-prev { left: 15% !important; }
   .swiper-button-next { right: 15% !important; }
 }
