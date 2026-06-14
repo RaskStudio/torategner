@@ -36,113 +36,126 @@ function App() {
 
   return (
     <div className="app">
-      <div style={{ backgroundColor: 'var(--accent-color)', color: 'white', textAlign: 'center', padding: '0.75rem', fontSize: '1rem', fontWeight: '900', letterSpacing: '0.05em' }}>
+      <div style={{ backgroundColor: 'var(--accent-color)', color: 'white', textAlign: 'center', padding: '0.75rem', fontSize: '1rem', fontWeight: '900', letterSpacing: '0.05em', position: 'sticky', top: 0, zIndex: 100 }}>
         MIDLERTIDIG SIDE – DEN FULDE OPLEVELSE ER PÅ VEJ! 🎨
       </div>
+
       <section className="hero">
-        <div style={{ marginBottom: '2rem' }}>
-          <img 
-            src={annaTora} 
-            alt="Tóra Tegner" 
-            style={{ 
-              width: '250px', 
-              height: '250px', 
-              objectFit: 'cover', 
-              borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px',
-              border: '4px solid var(--text-color)',
-              boxShadow: '15px 15px 0px var(--secondary-color)'
-            }} 
-          />
-        </div>
-        <h1>Tóra Tegner</h1>
-        <p style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--secondary-color)', maxWidth: '800px', margin: '0 auto' }}>Håndtegnede fortællinger, der danser på papiret</p>
-        <p style={{ marginTop: '2.5rem', fontSize: '1.2rem', maxWidth: '650px', margin: '2.5rem auto', color: 'var(--text-color)' }}>
-          Glem alt om kedelige lige linjer. Her får du personlige krusedulle-vibe, der bringer liv og skæve smil ind i dit hjem.
-        </p>
-        <div style={{ marginTop: '3rem' }}>
-          <p style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 'bold', color: 'var(--accent-color)', marginBottom: '1rem' }}>Følg med her</p>
-          <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', transition: 'transform 0.3s' }} className="social-icon">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
+        <div className="section-content">
+          <div style={{ marginBottom: '2rem' }}>
+            <img 
+              src={annaTora} 
+              alt="Tóra Tegner" 
+              style={{ 
+                width: '250px', 
+                height: '250px', 
+                objectFit: 'cover', 
+                borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px',
+                border: '4px solid var(--text-color)',
+                boxShadow: '15px 15px 0px var(--secondary-color)'
+              }} 
+            />
+          </div>
+          <h1>Tóra Tegner</h1>
+          <p style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--secondary-color)', maxWidth: '800px', margin: '0 auto' }}>Håndtegnede fortællinger, der danser på papiret</p>
+          <p style={{ marginTop: '2.5rem', fontSize: '1.2rem', maxWidth: '650px', margin: '2.5rem auto', color: 'var(--text-color)' }}>
+            Glem alt om kedelige lige linjer. Her får du personlige krusedulle-vibe, der bringer liv og skæve smil ind i dit hjem.
+          </p>
+          <div style={{ marginTop: '3rem' }}>
+            <p style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 'bold', color: 'var(--accent-color)', marginBottom: '1rem' }}>Følg med her</p>
+            <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', transition: 'transform 0.3s' }} className="social-icon">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="gallery">
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-color)' }}>Udvalgte Værker</h2>
-        <div className="swiper-container-relative" style={{ position: 'relative' }}>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            }}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 }
-            }}
-            className="mySwiper"
-          >
-            {galleryImages.map((img, index) => (
-              <SwiperSlide key={index}>
-                <div className="gallery-item" onClick={() => setSelectedImage(img.url)} style={{ cursor: 'pointer' }}>
-                  <img src={img.url} alt={img.title} loading="lazy" />
-                  <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{img.title}</p>
-                </div>
-              </SwiperSlide>
+      <section className="gallery-section">
+        <div className="section-content">
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-color)' }}>Udvalgte Værker</h2>
+          <div className="swiper-container-relative" style={{ position: 'relative' }}>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }}
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
+              className="mySwiper"
+            >
+              {galleryImages.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <div className="gallery-item" onClick={() => setSelectedImage(img.url)} style={{ cursor: 'pointer' }}>
+                    <img src={img.url} alt={img.title} loading="lazy" />
+                    <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{img.title}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="videos-section">
+        <div className="section-content">
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Bag Om Stregen</h2>
+          <div className="video-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+            {processVideos.map((video, index) => (
+              <div key={index} className="gallery-item" style={{ padding: '1rem' }}>
+                <video 
+                  src={video.url} 
+                  controls 
+                  style={{ width: '100%', borderRadius: 'inherit', display: 'block', backgroundColor: '#000' }}
+                  muted
+                  loop
+                  preload="metadata"
+                />
+                <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{video.title}</p>
+              </div>
             ))}
-          </Swiper>
-          <div className="swiper-button-prev"></div>
-          <div className="swiper-button-next"></div>
+          </div>
         </div>
       </section>
 
-      <section className="videos" style={{ padding: '8rem 2rem' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-color)' }}>Bag Om Stregen</h2>
-        <div className="video-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1100px', margin: '0 auto' }}>
-          {processVideos.map((video, index) => (
-            <div key={index} className="gallery-item" style={{ padding: '1rem' }}>
-              <video 
-                src={video.url} 
-                controls 
-                style={{ width: '100%', borderRadius: 'inherit', display: 'block', backgroundColor: '#000' }}
-                muted
-                loop
-                preload="metadata"
-              />
-              <p style={{ marginTop: '1rem', textAlign: 'center', fontWeight: 'bold', color: 'var(--accent-color)' }}>{video.title}</p>
-            </div>
-          ))}
+      <section className="info-section">
+        <div className="section-content" style={{ textAlign: 'center' }}>
+          <h2 style={{ color: 'var(--accent-color)' }}>Giv dine vægge en personlig krølle</h2>
+          <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'var(--text-color)' }}>
+            En Tóra Tegner plakat er ikke bare en tegning – det er en legende fortolkning af alt det, der betyder noget for dig. 
+            Med min intuitive krusedulle-streg forvandler jeg minder, følelser og drømme til unikke værker, der aldrig bliver kedelige at se på. 
+            Hver streg er særbestilt og tegnet med kærlighed til det uperfekte og det helt unikke.
+          </p>
         </div>
       </section>
 
-      <section className="info">
-        <h2>Giv dine vægge en personlig krølle</h2>
-        <p style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto' }}>
-          En Tóra Tegner plakat er ikke bare en tegning – det er en legende fortolkning af alt det, der betyder noget for dig. 
-          Med min intuitive krusedulle-streg forvandler jeg minder, følelser og drømme til unikke værker, der aldrig bliver kedelige at se på. 
-          Hver streg er særbestilt og tegnet med kærlighed til det uperfekte og det helt unikke.
-        </p>
+      <section className="contact-section">
+        <div className="section-content">
+          <div className="contact-box">
+            <h2>Skal vi skabe magi sammen?</h2>
+            <p>Hver bestilling starter med en god snak om dine ønsker.</p>
+            <p style={{ margin: '1.5rem 0' }}>
+              Send en krusedulle-hilsen til: <br />
+              <a href="mailto:hej@torategner.dk">hej@torategner.dk</a>
+            </p>
+            <p>Hop ind i mit kreative univers på Instagram: <strong>@tora_tegner</strong></p>
+          </div>
+        </div>
       </section>
 
-      <section className="contact" style={{ backgroundColor: 'var(--accent-color)', color: 'white' }}>
-        <h2 style={{ color: 'white' }}>Skal vi skabe magi sammen?</h2>
-        <p>Hver bestilling starter med en god snak om dine ønsker.</p>
-        <p style={{ margin: '1.5rem 0' }}>
-          Send en krusedulle-hilsen til: <br />
-          <a href="mailto:hej@torategner.dk" style={{ color: 'white', borderBottomColor: 'white' }}>hej@torategner.dk</a>
-        </p>
-        <p>Hop ind i mit kreative univers på Instagram: <strong>@tora_tegner</strong></p>
-      </section>
-
-      <footer style={{ textAlign: 'center', padding: '2rem', fontSize: '0.8rem', opacity: 0.7 }}>
+      <footer style={{ backgroundColor: 'var(--accent-color)', color: 'white', textAlign: 'center', padding: '2rem', fontSize: '0.8rem', opacity: 0.9 }}>
         &copy; {new Date().getFullYear()} Tóra Tegner. Alle rettigheder forbeholdes.
       </footer>
 

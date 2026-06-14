@@ -32,15 +32,24 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
 }
 
+/* Sektion Grundstruktur */
 section {
-  padding: 5rem 2rem; /* Reduceret fra 8rem */
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 6rem 0;
+  margin: 0;
 }
 
+.section-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Sektion Farver & Specifik Styling */
 .hero {
+  background-color: var(--bg-color);
   text-align: center;
-  padding: 6rem 2rem; /* Reduceret fra 10rem */
+  padding: 8rem 0;
 }
 
 .hero h1 {
@@ -65,14 +74,34 @@ section {
   opacity: 0.3;
 }
 
-.gallery {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding-bottom: 2rem;
+.gallery-section {
+  background-color: #ffffff; /* Hvid */
 }
 
+.videos-section {
+  background-color: var(--secondary-color); /* Blå */
+  color: white;
+}
+
+.videos-section h2 {
+  color: white;
+}
+
+.info-section {
+  background-color: #fdfaf3; /* Off-white */
+}
+
+.contact-section {
+  background-color: var(--accent-color); /* Rød */
+  color: white;
+  padding-bottom: 4rem;
+}
+
+.contact-section h2 {
+  color: white;
+}
+
+/* Komponent Styling */
 .gallery-item {
   background: white;
   padding: 1.5rem;
@@ -81,6 +110,7 @@ section {
   box-shadow: 12px 12px 0px var(--accent-color);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 4px solid var(--text-color);
+  color: var(--text-color);
 }
 
 .gallery-item:hover {
@@ -96,43 +126,19 @@ section {
   border-radius: inherit;
 }
 
-section.info {
-  background: var(--secondary-color);
-  color: white;
-  max-width: none;
-  width: 100%;
-  margin: 2rem 0;
-  padding: 6rem 2rem; /* Reduceret fra 10rem */
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.info h2 {
-  color: white;
-  font-size: 3rem;
-  max-width: 800px;
-  margin: 0 auto 1.5rem auto;
-  text-align: center;
-}
-
-.info p {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact {
+.contact-box {
   text-align: center;
   background: #fff;
-  margin: 4rem auto;
-  padding: 4rem 3rem; /* Reduceret fra 6rem */
+  color: var(--text-color);
+  margin: 2rem auto;
+  padding: 4rem 3rem;
   border-radius: 250px 15px 100px 15px/15px 200px 15px 250px;
-  border: 5px solid var(--accent-color);
+  border: 5px solid var(--text-color);
   box-shadow: 20px 20px 0px var(--secondary-color);
+  max-width: 800px;
 }
 
-.contact a {
+.contact-box a {
   color: var(--accent-color);
   font-weight: 900;
   font-size: 2rem;
@@ -142,7 +148,7 @@ section.info {
   transition: all 0.3s;
 }
 
-.contact a:hover {
+.contact-box a:hover {
   background: var(--accent-color);
   color: white;
   border-bottom-color: transparent;
@@ -160,7 +166,7 @@ section.info {
   stroke: var(--secondary-color);
 }
 
-/* Swiper Custom Styles */
+/* Swiper Styles */
 .swiper {
   padding-bottom: 8rem !important;
   overflow: visible !important;
@@ -202,20 +208,11 @@ section.info {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .swiper-button-prev {
-    left: 15% !important;
-  }
-  .swiper-button-next {
-    right: 15% !important;
-  }
-}
-
 .swiper-pagination-bullet-active {
   background: var(--accent-color) !important;
 }
 
-/* Lightbox Styles */
+/* Lightbox */
 .lightbox {
   position: fixed;
   top: 0;
@@ -259,11 +256,11 @@ section.info {
 
 @media (max-width: 768px) {
   section {
-    padding: 3rem 1.25rem; /* Reduceret fra 4rem */
+    padding: 4rem 0;
   }
   
-  .hero {
-    padding: 4rem 1.25rem; /* Reduceret fra 5rem */
+  .section-content {
+    padding: 0 1.5rem;
   }
 
   .hero h1 {
@@ -275,17 +272,21 @@ section.info {
     height: 300px;
   }
 
-  .info {
-    padding: 3rem 1.5rem; /* Reduceret fra 4rem */
+  .contact-box {
+    padding: 3rem 1.5rem;
+    margin: 0 1rem;
   }
 
-  .contact {
-    padding: 3rem 1.5rem; /* Reduceret fra 4rem */
-  }
-
-  .contact a {
+  .contact-box a {
     font-size: 1.4rem;
     word-break: break-all;
+  }
+
+  .swiper-button-prev {
+    left: 15% !important;
+  }
+  .swiper-button-next {
+    right: 15% !important;
   }
 }
 
