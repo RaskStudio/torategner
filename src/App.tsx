@@ -47,24 +47,28 @@ function App() {
       </div>
 
       <section className="hero">
-        <div className="section-content">
-          <div style={{ marginBottom: '2rem' }}>
+        <div className="section-content hero-grid">
+          <h1 className="hero-logo">Tóra Tegner</h1>
+          
+          <div className="hero-image-container">
             <img 
               src={annaTora} 
               alt="Tóra Tegner" 
               className="profile-img"
             />
           </div>
-          <h1>Tóra Tegner</h1>
-          <p className="hero-sub">Personlige krusedulle-plakater</p>
-          <p className="hero-text">
-            Jeg tegner personlige plakater på særbestilling. Det er skævt, intuitivt og aldrig helt som man forventer – præcis som en god krusedulle skal være.
-          </p>
-          <div style={{ marginTop: '3rem' }}>
-            <p className="social-label">Se mere her</p>
-            <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <img src={instagramIkon} alt="Instagram" style={{ width: '60px', height: '60px', display: 'block', margin: '0 auto' }} />
-            </a>
+
+          <div className="hero-text-container">
+            <p className="hero-sub">Personlige krusedulle-plakater</p>
+            <p className="hero-text">
+              Jeg tegner personlige plakater på særbestilling. Det er skævt, intuitivt og aldrig helt som man forventer – præcis som en god krusedulle skal være.
+            </p>
+            <div className="hero-social">
+              <p className="social-label">Se mere her</p>
+              <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <img src={instagramIkon} alt="Instagram" style={{ width: '60px', height: '60px' }} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -129,7 +133,7 @@ function App() {
         <div className="section-content" style={{ textAlign: 'center' }}>
           <h2>Bag om stregen</h2>
           <p className="info-text">
-            Jeg tegner altid meget intuitivt. Mine plakater er særbestillinger, hvor jeg prøver at fange en følelse eller en fortælling gennem min streg. For mig er det det uperfekte og de skæve linjer, der gør en tegning unik og giver den personlighed.
+            Jeg tegner altid meget intuitivt. Mine plakater er særbestillinger, hvor jeg prøver at fange en følelse eller en fortælling gennem min streg. For mij er det det uperfekte og de skæve linjer, der gør en tegning unik og giver den personlighed.
           </p>
         </div>
       </section>
