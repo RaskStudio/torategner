@@ -6,7 +6,7 @@
   --secondary-color: #808bac;
   --highlight-color: #ffffff;
   --font-body: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-heading: 'Cooper Black', 'Fraunces', serif;
+  --font-heading: 'Spicy Rice', serif;
 }
 
 @keyframes float {
@@ -96,7 +96,7 @@ section {
 .hero-sub {
   font-size: 1.8rem;
   font-weight: 900;
-  color: var(--secondary-color);
+  color: var(--accent-color); /* Rettet til rød */
   max-width: 800px;
   margin: 0 auto;
 }
@@ -115,7 +115,7 @@ section {
   object-fit: cover;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   border: 4px solid var(--text-color);
-  box-shadow: 15px 15px 0px var(--orange-color); /* Bruger orange her */
+  box-shadow: 15px 15px 0px var(--orange-color);
   animation: float 4s ease-in-out infinite;
 }
 
@@ -161,7 +161,7 @@ section {
 
 /* Kontakt Sektion */
 .contact-section {
-  background-color: var(--orange-color); /* Orange baggrund nederst */
+  background-color: var(--orange-color);
   color: white;
   padding-bottom: 4rem;
 }
@@ -171,7 +171,7 @@ section {
 }
 
 .contact-box {
-  text-align: left; /* Venstrestillet indhold for rows */
+  text-align: left;
   background: #fff;
   color: var(--text-color);
   margin: 2rem auto;
@@ -180,10 +180,15 @@ section {
   border: 5px solid var(--text-color);
   box-shadow: 20px 20px 0px var(--secondary-color);
   max-width: 800px;
+  transition: transform 0.3s ease;
+}
+
+.contact-box:hover {
+  transform: scale(1.02);
 }
 
 .contact-box h2 {
-  color: var(--accent-color) !important; /* Dyb rød overskrift i hvid boks */
+  color: var(--accent-color) !important;
   text-align: center;
 }
 
@@ -210,7 +215,7 @@ section {
 .contact-row span {
   font-weight: 900;
   font-size: 1.5rem;
-  color: var(--accent-color); /* Den dybe røde på teksten */
+  color: var(--accent-color);
 }
 
 /* Komponenter */
@@ -219,7 +224,7 @@ section {
   padding: 1.5rem;
   margin: 1rem;
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; 
-  box-shadow: 12px 12px 0px var(--orange-color); /* Orange skygge */
+  box-shadow: 12px 12px 0px var(--orange-color);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 4px solid var(--text-color);
   color: var(--text-color) !important;
