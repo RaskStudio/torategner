@@ -47,7 +47,7 @@ h1, h2, h3 {
   font-family: var(--font-heading);
   margin-bottom: 1.5rem;
   font-style: normal;
-  font-weight: 900;
+  font-weight: normal; /* Spicy Rice har kun én vægt, så vi lader den stå rent */
   letter-spacing: -0.02em;
 }
 
