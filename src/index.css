@@ -176,15 +176,17 @@ section {
   color: var(--text-color);
   margin: 2rem auto;
   padding: 4rem 3rem;
-  border-radius: 40px 15px 35px 20px;
+  /* Skæv og organisk form magen til galleriet */
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
   border: 5px solid var(--text-color);
-  box-shadow: 20px 20px 0px var(--secondary-color);
-  max-width: 800px;
-  transition: transform 0.3s ease;
+  box-shadow: 15px 15px 0px var(--secondary-color);
+  max-width: 850px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .contact-box:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px) rotate(0.5deg);
+  box-shadow: 20px 20px 0px var(--accent-color);
 }
 
 .contact-box h2 {
