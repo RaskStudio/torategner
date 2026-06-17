@@ -206,12 +206,11 @@ section {
 
 .info-section h2 {
   color: white;
-  text-align: center;
 }
 
 .info-text-container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
 }
 
 .info-text {
@@ -240,10 +239,16 @@ section {
     gap: 3rem;
   }
   
-  .exhibition-block .work-grid {
+  /* Udstilling: tekst i fuld bredde, lille venstrestillet medie-række under */
+  .exhibition-block .exhibition-text {
+    max-width: none; /* teksten går helt ud til margin */
+  }
+
+  .exhibition-block .exhibition-media {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 1.5rem;
+    max-width: 500px; /* lille række, så thumb-kvaliteten ikke ses */
+    margin: 0; /* venstrestillet, flugter med teksten */
   }
 }
 
@@ -606,6 +611,9 @@ section {
   
   h2 { font-size: 1.8rem; margin-bottom: 2rem !important; }
   h3 { font-size: 1.4rem; }
+
+  /* På mobil centreres section-overskrifter (matcher det centrerede mobil-layout) */
+  .section-content > h2 { text-align: center; }
   
   .info-text { font-size: 1rem; }
   .exhibition-text p { font-size: 0.95rem; }
