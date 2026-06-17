@@ -17,7 +17,7 @@ import moesgaardBookmarks from './assets/Moesgaard bogmærker.jpg'
 
 // Import videoer
 import containerProces from './assets/containerKUNST roces.mp4'
-import containerOpening from './assets/ContainerKUST åbning.mp4'
+import containerOpening from './assets/container_opening.mp4'
 import urkVideo from './assets/URK.mp4'
 import peerPartnerskabetVideo from './assets/Peerpartnerskabet.mp4'
 import muskelsvindsfondenVideo from './assets/Muskelsvindsfonden.mp4'
