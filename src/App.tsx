@@ -12,11 +12,19 @@ import cykelPlakat from './assets/Cykel plakat.jpg'
 import lisePlakat from './assets/Lise plakat.jpg'
 import skeletPlakat from './assets/Skelet.jpg'
 import toPersonerPlakat from './assets/To personer plakat.jpg'
+import moesgaardImg from './assets/Moesgaard.jpg'
+import moesgaardBookmarks from './assets/Moesgaard bogmærker.jpg'
 
 // Import videoer
-import malevideo from './assets/Malevideo.mp4'
-import containerVideo from './assets/ContainerKUNST video.mp4'
-import peerVideo from './assets/Peer parner video.mp4'
+import containerProces from './assets/containerKUNST roces.mp4'
+import containerOpening from './assets/ContainerKUST åbning.mp4'
+import urkVideo from './assets/URK.mp4'
+import peerPartnerskabetVideo from './assets/Peerpartnerskabet.mp4'
+import muskelsvindsfondenVideo from './assets/Muskelsvindsfonden.mp4'
+import tegneproces1 from './assets/Tegneproces 1.mp4'
+import tegneproces2 from './assets/Tegneproces 2.mp4'
+import tegneproces3 from './assets/Tegneproces 3.mp4'
+import printProces from './assets/Print proces.mp4'
 
 // Import ikoner
 import instagramIkon from './assets/instagram_ikon.png'
@@ -35,9 +43,10 @@ function App() {
   ]
 
   const processVideos = [
-    { url: malevideo, title: "Her bliver en plakat til" },
-    { url: containerVideo, title: "ContainerKUNST" },
-    { url: peerVideo, title: "Peer-Partnerskabet" }
+    { url: tegneproces1, title: "Tegneproces I" },
+    { url: tegneproces2, title: "Tegneproces II" },
+    { url: tegneproces3, title: "Tegneproces III" },
+    { url: printProces, title: "Fra skærm til print" }
   ]
 
   return (
@@ -59,16 +68,140 @@ function App() {
           </div>
 
           <div className="hero-text-container">
-            <p className="hero-sub">Personlige krusedulle-plakater</p>
+            <p className="hero-sub">Personlige kruseduller</p>
             <p className="hero-text">
-              Jeg tegner personlige plakater på særbestilling. Det er skævt, intuitivt og aldrig helt som man forventer – præcis som en god krusedulle skal være.
+              Kunst og visuel formidling særligt målrettet organisationer, virksomheder og sociale projekter med at kommunikere deres værdier, engagement og den forskel de skaber.
             </p>
             <div className="hero-social">
-              <p className="social-label">Se mere her</p>
-              <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-icon">
-                <img src={instagramIkon} alt="Instagram" style={{ width: '60px', height: '60px' }} />
+              <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-button">
+                <img src={instagramIkon} alt="Instagram" />
+                <span>Se mere her</span>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="info-section">
+        <div className="section-content">
+          <h2>Bag om stregen</h2>
+          <div className="info-text-container">
+            <p className="info-text">
+              Mit navn er Anna Tóra, og jeg er aspirerende visuel antropolog med en særlig interesse for, hvordan billeder, illustrationer og grafiske fortællinger kan gøre kompleks viden nærværende og engagerende.
+            </p>
+            <p className="info-text">
+              Jeg er optaget af menneskers historier, erfaringer og perspektiver, og af hvordan visuel formidling kan skabe forståelse, dialog og forbindelse mellem mennesker. Gennem mit arbejde kombinerer jeg kreativitet, nysgerrighed og et antropologisk blik for at omsætte idéer og budskaber til visuelle fortællinger.
+            </p>
+            <p className="info-text">
+              Jeg har grundlagt <strong>TÓRA TEGNER</strong>, hvor jeg arbejder med kunst og visuel formidling, der hjælper organisationer, virksomheder og projekter med at kommunikere deres værdier, engagement og den forskel, de skaber.
+            </p>
+            <p className="info-text">
+              Jeg ønsker særligt at samarbejde med kulturelle, sociale og bæredygtige initiativer, som ønsker at gøre deres budskaber more synlige, menneskelige og engagerende.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="work-section">
+        <div className="section-content">
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Tidligere arbejde</h2>
+          <div className="work-grid">
+            <div className="work-card">
+              <div className="work-item" onClick={() => setSelectedImage(peerPartnerskabetVideo)} style={{ cursor: 'pointer' }}>
+                <video src={`${peerPartnerskabetVideo}#t=0.001`} muted loop autoPlay playsInline />
+              </div>
+              <p className="work-item-title">PeerPartnerskabet</p>
+            </div>
+            <div className="work-card">
+              <div className="work-item" onClick={() => setSelectedImage(urkVideo)} style={{ cursor: 'pointer' }}>
+                <video src={`${urkVideo}#t=0.001`} muted loop autoPlay playsInline />
+              </div>
+              <p className="work-item-title">URK Odense</p>
+            </div>
+            <div className="work-card">
+              <div className="work-item" onClick={() => setSelectedImage(moesgaardImg)} style={{ cursor: 'pointer' }}>
+                <img src={moesgaardImg} alt="Moesgaard" />
+              </div>
+              <p className="work-item-title">Moesgaard</p>
+            </div>
+            <div className="work-card">
+              <div className="work-item" onClick={() => setSelectedImage(muskelsvindsfondenVideo)} style={{ cursor: 'pointer' }}>
+                <video src={`${muskelsvindsfondenVideo}#t=0.001`} muted loop autoPlay playsInline />
+              </div>
+              <p className="work-item-title">Muskelsvinds<span className="mobile-break">-</span><br className="mobile-only-br" />fonden</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="exhibition-section">
+        <div className="section-content">
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Udstilling</h2>
+          
+          <div className="exhibition-block">
+            <h3>Moesgaard Museum</h3>
+            <div className="exhibition-text">
+              <p>
+                Som kurator på en studenterudstilling i samarbejde med Antropologi på Aarhus Universitet og Moesgaard Museum, havde jeg ansvaret for at skabe den visuelle sammenhæng og sikre en rød tråd gennem hele udstillingen.
+              </p>
+              <p>
+                Mit arbejde indebar blandt andet at designe den overordnede visuelle identitet, herunder det grafiske banner og de personlige bogmærker, som de besøgende kunne tage med hjem for at fuldende oplevelsen af udstillingen.
+              </p>
+            </div>
+            <div className="work-grid">
+              <div className="work-item" onClick={() => setSelectedImage(moesgaardImg)} style={{ cursor: 'pointer' }}>
+                <img src={moesgaardImg} alt="Moesgaard" />
+              </div>
+              <div className="work-item" onClick={() => setSelectedImage(moesgaardBookmarks)} style={{ cursor: 'pointer' }}>
+                <img src={moesgaardBookmarks} alt="Moesgaard bogmærker" />
+              </div>
+            </div>
+          </div>
+
+          <div className="exhibition-block" style={{ marginTop: '5rem' }}>
+            <h3>ContainerKUNST</h3>
+            <div className="exhibition-text">
+              <p>
+                I forbindelse med Esbjerg Festuge udviklede jeg et midlertidigt udstillings- og arbejdsrum i en container, der fungerede som både kunstudstilling, kreativt værksted og mødested.
+              </p>
+              <p>
+                Projektet havde til formål at gøre kunsten mere tilgængelig og skabe et rum, hvor besøgende kunne få indblik i den kreative proces bag værkerne. Containeren rummede både større originale værker og "Tóras Malestue", hvor børn og familier blev inviteret til selv at udforske kreativiteten gennem farver og former.
+              </p>
+              <p>
+                Som udstillingsformat skabte containeren en uformel ramme for dialog mellem kunstner og publikum. Besøgende kunne opleve kunsten på nært hold, stille spørgsmål til arbejdsprocessen og få indsigt i de muligheder og udfordringer, der følger med livet som selvstændig kunstner og kreativ iværksætter.
+              </p>
+              <p>
+                Projektet fungerede samtidig som et eksperiment i publikumsinddragelse og formidling, hvor målet var at skabe møder på tværs af alder, baggrund og interesse for kunst.
+              </p>
+            </div>
+            
+            <div className="work-grid" style={{ marginTop: '3rem' }}>
+              <div className="work-item" onClick={() => setSelectedImage(containerProces)} style={{ cursor: 'pointer' }}>
+                <video src={`${containerProces}#t=0.001`} muted loop autoPlay playsInline />
+              </div>
+              <div className="work-item" onClick={() => setSelectedImage(containerOpening)} style={{ cursor: 'pointer' }}>
+                <video src={`${containerOpening}#t=0.001`} muted loop autoPlay playsInline />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="videos-section">
+        <div className="section-content">
+          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Min tegneproces</h2>
+          <div className="work-grid">
+            {processVideos.map((video, index) => (
+              <div key={index} className="work-item" style={{ cursor: 'pointer' }} onClick={() => setSelectedImage(video.url)}>
+                <video 
+                  src={`${video.url}#t=0.001`} 
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -108,42 +241,12 @@ function App() {
         </div>
       </section>
 
-      <section className="videos-section">
-        <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Lidt fra processen</h2>
-          <div className="video-grid">
-            {processVideos.map((video, index) => (
-              <div key={index} className="gallery-item" style={{ padding: '1rem' }}>
-                <video 
-                  src={`${video.url}#t=0.001`} 
-                  controls 
-                  style={{ width: '100%', borderRadius: 'inherit', display: 'block', backgroundColor: '#000' }}
-                  muted
-                  loop
-                  preload="metadata"
-                />
-                <p className="gallery-item-title">{video.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="info-section">
-        <div className="section-content" style={{ textAlign: 'center' }}>
-          <h2>Bag om stregen</h2>
-          <p className="info-text">
-            Jeg tegner altid meget intuitivt. Mine plakater er særbestillinger, hvor jeg prøver at fange en følelse eller en fortælling gennem min streg. For mij er det det uperfekte og de skæve linjer, der gør en tegning unik og giver den personlighed.
-          </p>
-        </div>
-      </section>
-
       <section className="contact-section">
         <div className="section-content">
           <div className="contact-box">
             <h2>Skal jeg tegne noget til dig?</h2>
             <p style={{ textAlign: 'center', marginBottom: '2.5rem', fontSize: '1.1rem' }}>
-              Hver plakat starter med en snak om dine ønsker og idéer. Ræk ud til mig her:
+              Hver illustration starter med en snak om dine ønsker og ideer. Ræk ud til mig her:
             </p>
             
             <div style={{ marginTop: '1rem' }}>
@@ -178,7 +281,17 @@ function App() {
       {selectedImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
           <div className="lightbox-content">
-            <img src={selectedImage} alt="Fuld størrelse" />
+            {selectedImage.endsWith('.mp4') ? (
+              <video 
+                src={selectedImage} 
+                controls 
+                autoPlay 
+                loop 
+                style={{ maxWidth: '100%', maxHeight: '90vh', borderRadius: '10px', border: '4px solid white' }} 
+              />
+            ) : (
+              <img src={selectedImage} alt="Fuld størrelse" />
+            )}
             <button className="close-lightbox">&times;</button>
           </div>
         </div>

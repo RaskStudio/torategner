@@ -10,7 +10,7 @@
   --text-color: #1e272e;
   --accent-color: #9d2a2a; /* Den dybe røde */
   --orange-color: #f07700; /* Den originale orange */
-  --secondary-color: #808bac;
+  --secondary-color: #a4b0c9; /* En lysere, mere dæmpet blå for bedre kontrast til den røde */
   --highlight-color: #ffffff;
   --font-body: 'Quicksand', sans-serif;
   --font-logo: 'Spicy Rice', serif;
@@ -58,11 +58,21 @@ h1 {
   letter-spacing: -0.02em;
 }
 
-h2, h3 {
+h2 {
   font-family: var(--font-heading);
   font-weight: normal;
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
+  color: var(--accent-color); /* Sikrer at hovedoverskrifter er røde hvis ikke andet er sat */
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: var(--accent-color);
+  letter-spacing: 0;
 }
 
 /* Sektion Grundstruktur */
@@ -70,12 +80,14 @@ section {
   width: 100%;
   padding: 5rem 0;
   margin: 0;
+  overflow: hidden; /* Forhindrer at indhold går ud over højre kant */
 }
 
 .section-content {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
 }
 
 /* Hero Sektion */
@@ -129,9 +141,9 @@ section {
 }
 
 .hero-sub {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 1.8rem;
-  font-weight: normal;
+  font-weight: bold;
   color: var(--accent-color);
   margin-bottom: 1rem;
 }
@@ -148,14 +160,163 @@ section {
   width: 350px;
   height: 350px;
   object-fit: cover;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
   border: 4px solid var(--text-color);
   box-shadow: 15px 15px 0px var(--orange-color);
   animation: float 4s ease-in-out infinite;
 }
 
 .hero-social {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  color: var(--accent-color);
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  border: 3px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 8px 8px 0px var(--orange-color);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-button:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 12px 12px 0px var(--secondary-color);
+  color: var(--orange-color);
+}
+
+.social-button img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Info Sektion */
+.info-section {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.info-section h2 {
+  color: white;
+  text-align: center;
+}
+
+.info-text-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-text {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* Grid Layouts */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .work-grid {
+    gap: 2rem; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3rem;
+  }
+  
+  .exhibition-block .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.work-item {
+  position: relative;
+  background: white;
+  border: 3px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 10px 10px 0px var(--orange-color); /* Gendan oprindelig skygge */
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  width: 100%; /* Gendan til 100% da margin/padding nu beskytter mod overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+.work-item:hover {
+  transform: translateY(-5px) translateZ(0);
+  box-shadow: 15px 15px 0px var(--secondary-color);
+}
+
+.work-item video, .work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.work-item-title {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  line-height: 1.2;
+}
+
+/* Exhibition Sektion */
+.exhibition-section {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.exhibition-section h2 {
+  color: white;
+}
+
+.exhibition-block {
+  margin-bottom: 4rem;
+}
+
+.exhibition-text {
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+.exhibition-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
 }
 
 /* Galleri Sektion */
@@ -176,27 +337,16 @@ section {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Info Sektion */
-.info-section {
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.info-section h2 {
-  color: white;
-}
-
-.info-text {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  font-weight: 500;
+@media (min-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* Kontakt Sektion */
@@ -263,35 +413,49 @@ section {
 /* Komponenter */
 .gallery-item {
   background: white;
-  padding: 1.5rem;
-  margin: 1rem;
+  padding: 1.2rem;
+  margin: 0.5rem;
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; 
-  box-shadow: 12px 12px 0px var(--orange-color);
+  box-shadow: 10px 10px 0px var(--orange-color);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 4px solid var(--text-color);
   color: var(--text-color) !important;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1.15;
+  justify-content: space-between;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.videos-section .gallery-item {
+  aspect-ratio: 1 / 1;
 }
 
 .gallery-item:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 18px 18px 0px var(--secondary-color);
+  transform: translateY(-8px) rotate(-1deg) translateZ(0);
+  box-shadow: 15px 15px 0px var(--secondary-color);
 }
 
-.gallery-item img {
+.gallery-item img, .gallery-item video {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
   display: block;
   border-radius: inherit;
+  flex: 1;
 }
 
 .gallery-item-title {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   text-align: center;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--accent-color) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Social Icon & Banner */
@@ -306,23 +470,6 @@ section {
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-.social-label {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: normal;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-}
-
-.social-icon {
-  display: inline-block;
-  transition: transform 0.3s;
-}
-
-.social-icon:hover {
-  transform: scale(1.2) rotate(5deg);
 }
 
 /* Swiper */
@@ -415,6 +562,23 @@ section {
 }
 
 /* Responsivitet */
+.mobile-break {
+  display: inline;
+}
+
+.mobile-only-br {
+  display: block;
+}
+
+@media (min-width: 480px) {
+  .mobile-break {
+    display: none;
+  }
+  .mobile-only-br {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   section { padding: 4rem 0; }
   .section-content { padding: 0 1.5rem; }
@@ -430,15 +594,44 @@ section {
     gap: 2rem;
   }
 
+  /* Typografi justeringer til mobil */
+  body {
+    font-size: 0.95rem; /* Generelt lidt mindre brødtekst på mobil */
+    line-height: 1.6;
+  }
+
   .hero-logo { font-size: 3.5rem; line-height: 1.2; }
-  .hero-sub { font-size: 1.4rem; }
+  .hero-sub { font-size: 1.3rem; }
+  .hero-text { font-size: 1rem; }
+  
+  h2 { font-size: 1.8rem; margin-bottom: 2rem !important; }
+  h3 { font-size: 1.4rem; }
+  
+  .info-text { font-size: 1rem; }
+  .exhibition-text p { font-size: 0.95rem; }
+  
+  .social-button { font-size: 1.1rem; padding: 0.6rem 1.5rem; }
   
   .profile-img {
     width: 250px;
     height: 250px;
   }
 
-  .gallery-item img { height: 300px; }
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Går tilbage til 2 kolonner på mobil som ønsket */
+    gap: 1rem; /* Mindre gap på mobil for at få plads til to kolonner */
+  }
+
+  .work-item-title {
+    font-size: 0.95rem; /* Gør titlerne lidt mere læsbare på mobil */
+    margin-top: 0.8rem;
+  }
+
+  .exhibition-item {
+    padding: 1.5rem;
+  }
+
+  .gallery-item img, .gallery-item video { height: auto; }
   .contact-box { padding: 3rem 1.5rem; margin: 0 1rem; }
   .contact-row span { font-size: 1.1rem; }
   .swiper-button-prev { left: 15% !important; }
@@ -447,4 +640,5 @@ section {
 
 @media (max-width: 480px) {
   .hero-logo { font-size: 2.8rem; }
+  .social-button span { font-size: 1.1rem; }
 }

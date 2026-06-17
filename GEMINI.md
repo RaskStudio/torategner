@@ -5,10 +5,13 @@
 - **Commit først:** Lav altid et lokalt commit og spørg derefter om lov til at pushe.
 
 ## Design & Stil
-- **Typografi:** Brug altid 'Spicy Rice' til overskrifter i `font-weight: normal`.
+- **Typografi:** 
+  - Hovedlogo (h1): 'Spicy Rice', `font-weight: normal`.
+  - Sektionsoverskrifter (h2): 'American Typewriter', `font-weight: normal`.
+  - Underoverskrifter (h3, .hero-sub): Brødtekst font ('Quicksand'), `font-weight: bold`, og farvet i den dybe røde accentfarve.
 - **Former:** Brug organiske og skæve "wobbly" streger til alle kort og bokse (border-radius: 255px 25px 225px 25px/25px 225px 25px 255px).
 - **Farver:** 
   - Baggrund: #eed18f (Gul)
   - Tekst accent: #9d2a2a (Dyb rød)
   - Grafik accent: #f07700 (Orange)
-  - Kontrast: #808bac (Blå)
+  - Kontrast: #a4b0c9 (Lysere blå)
