@@ -260,6 +260,18 @@ function App() {
                 <ThumbVideo src={containerOpeningThumb} />
               </div>
             </div>
+            <div className="exhibition-articles">
+              <span className="exhibition-articles-label">I medierne</span>
+              <a
+                className="article-link"
+                href="https://rykindribe.dk/artikler/kulturer-kunst-og-udsyn-anna-tora-holm-lund/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Kulturer, kunst og udsyn
+                <span className="article-link-source">· Ryk Ind Ribe</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
