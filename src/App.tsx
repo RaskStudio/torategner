@@ -15,16 +15,25 @@ import toPersonerPlakat from './assets/To personer plakat.jpg'
 import moesgaardImg from './assets/Moesgaard.jpg'
 import moesgaardBookmarks from './assets/Moesgaard bogmærker.jpg'
 
-// Import videoer
-import containerProces from './assets/containerKUNST roces.mp4'
-import containerOpening from './assets/container_opening.mp4'
-import urkVideo from './assets/URK.mp4'
-import peerPartnerskabetVideo from './assets/Peerpartnerskabet.mp4'
-import muskelsvindsfondenVideo from './assets/Muskelsvindsfonden.mp4'
-import tegneproces1 from './assets/Tegneproces 1.mp4'
-import tegneproces2 from './assets/Tegneproces 2.mp4'
-import tegneproces3 from './assets/Tegneproces 3.mp4'
-import printProces from './assets/Print proces.mp4'
+// Import videoer – thumb = lille muted preview, full = høj kvalitet m. lyd til lightbox
+import containerProcesThumb from './assets/thumbs/containerKunst proces.mp4'
+import containerProcesFull from './assets/full/containerKunst proces.mp4'
+import containerOpeningThumb from './assets/thumbs/container_opening.mp4'
+import containerOpeningFull from './assets/full/container_opening.mp4'
+import urkThumb from './assets/thumbs/URK.mp4'
+import urkFull from './assets/full/URK.mp4'
+import peerPartnerskabetThumb from './assets/thumbs/Peerpartnerskabet.mp4'
+import peerPartnerskabetFull from './assets/full/Peerpartnerskabet.mp4'
+import muskelsvindsfondenThumb from './assets/thumbs/Muskelsvindsfonden.mp4'
+import muskelsvindsfondenFull from './assets/full/Muskelsvindsfonden.mp4'
+import tegneproces1Thumb from './assets/thumbs/Tegneproces 1.mp4'
+import tegneproces1Full from './assets/full/Tegneproces 1.mp4'
+import tegneproces2Thumb from './assets/thumbs/Tegneproces 2.mp4'
+import tegneproces2Full from './assets/full/Tegneproces 2.mp4'
+import tegneproces3Thumb from './assets/thumbs/Tegneproces 3.mp4'
+import tegneproces3Full from './assets/full/Tegneproces 3.mp4'
+import printProcesThumb from './assets/thumbs/Print proces.mp4'
+import printProcesFull from './assets/full/Print proces.mp4'
 
 // Import ikoner
 import instagramIkon from './assets/instagram_ikon.png'
@@ -68,6 +77,34 @@ function ThumbVideo({ src }: { src: string }) {
   )
 }
 
+// Lightbox-video i fuld størrelse. Forsøger at afspille med lyd; hvis browseren
+// blokerer autoplay med lyd, falder den tilbage til muted, så der altid kommer
+// billede op (brugeren kan så slå lyd til via kontrollerne).
+function LightboxVideo({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = ref.current
+    if (!video) return
+    video.play().catch(() => {
+      video.muted = true
+      video.play().catch(() => {})
+    })
+  }, [src])
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      controls
+      loop
+      playsInline
+      preload="auto"
+      style={{ maxWidth: '100%', maxHeight: '90vh', borderRadius: '10px', border: '4px solid white' }}
+    />
+  )
+}
+
 function App() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -104,10 +141,10 @@ function App() {
   ]
 
   const processVideos = [
-    { url: tegneproces1, title: "Tegneproces I" },
-    { url: tegneproces2, title: "Tegneproces II" },
-    { url: tegneproces3, title: "Tegneproces III" },
-    { url: printProces, title: "Fra skærm til print" }
+    { thumb: tegneproces1Thumb, full: tegneproces1Full, title: "Tegneproces I" },
+    { thumb: tegneproces2Thumb, full: tegneproces2Full, title: "Tegneproces II" },
+    { thumb: tegneproces3Thumb, full: tegneproces3Full, title: "Tegneproces III" },
+    { thumb: printProcesThumb, full: printProcesFull, title: "Fra skærm til print" }
   ]
 
   return (
@@ -165,17 +202,17 @@ function App() {
 
       <section className="work-section">
         <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Tidligere arbejde</h2>
+          <h2 style={{ marginBottom: '3rem' }}>Tidligere arbejde</h2>
           <div className="work-grid">
             <div className="work-card">
-              <div className="work-item" {...openProps(peerPartnerskabetVideo, 'PeerPartnerskabet')}>
-                <ThumbVideo src={peerPartnerskabetVideo} />
+              <div className="work-item" {...openProps(peerPartnerskabetFull, 'PeerPartnerskabet')}>
+                <ThumbVideo src={peerPartnerskabetThumb} />
               </div>
               <p className="work-item-title">PeerPartnerskabet</p>
             </div>
             <div className="work-card">
-              <div className="work-item" {...openProps(urkVideo, 'URK Odense')}>
-                <ThumbVideo src={urkVideo} />
+              <div className="work-item" {...openProps(urkFull, 'URK Odense')}>
+                <ThumbVideo src={urkThumb} />
               </div>
               <p className="work-item-title">URK Odense</p>
             </div>
@@ -186,8 +223,8 @@ function App() {
               <p className="work-item-title">Moesgaard</p>
             </div>
             <div className="work-card">
-              <div className="work-item" {...openProps(muskelsvindsfondenVideo, 'Muskelsvindsfonden')}>
-                <ThumbVideo src={muskelsvindsfondenVideo} />
+              <div className="work-item" {...openProps(muskelsvindsfondenFull, 'Muskelsvindsfonden')}>
+                <ThumbVideo src={muskelsvindsfondenThumb} />
               </div>
               <p className="work-item-title">Muskelsvinds<span className="mobile-break">-</span><br className="mobile-only-br" />fonden</p>
             </div>
@@ -197,7 +234,7 @@ function App() {
 
       <section className="exhibition-section">
         <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Udstilling</h2>
+          <h2 style={{ marginBottom: '3rem' }}>Udstilling</h2>
           
           <div className="exhibition-block">
             <h3>Moesgaard Museum</h3>
@@ -209,7 +246,7 @@ function App() {
                 Mit arbejde indebar blandt andet at designe den overordnede visuelle identitet, herunder det grafiske banner og de personlige bogmærker, som de besøgende kunne tage med hjem for at fuldende oplevelsen af udstillingen.
               </p>
             </div>
-            <div className="work-grid">
+            <div className="work-grid exhibition-media">
               <div className="work-item" {...openProps(moesgaardImg, 'Moesgaard')}>
                 <img src={moesgaardImg} alt="Moesgaard" />
               </div>
@@ -235,13 +272,12 @@ function App() {
                 Projektet fungerede samtidig som et eksperiment i publikumsinddragelse og formidling, hvor målet var at skabe møder på tværs af alder, baggrund og interesse for kunst.
               </p>
             </div>
-            
-            <div className="work-grid" style={{ marginTop: '3rem' }}>
-              <div className="work-item" {...openProps(containerProces, 'ContainerKUNST proces')}>
-                <ThumbVideo src={containerProces} />
+            <div className="work-grid exhibition-media">
+              <div className="work-item" {...openProps(containerProcesFull, 'ContainerKUNST proces')}>
+                <ThumbVideo src={containerProcesThumb} />
               </div>
-              <div className="work-item" {...openProps(containerOpening, 'ContainerKUNST åbning')}>
-                <ThumbVideo src={containerOpening} />
+              <div className="work-item" {...openProps(containerOpeningFull, 'ContainerKUNST åbning')}>
+                <ThumbVideo src={containerOpeningThumb} />
               </div>
             </div>
           </div>
@@ -250,11 +286,11 @@ function App() {
 
       <section className="videos-section">
         <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Min tegneproces</h2>
+          <h2 style={{ marginBottom: '3rem' }}>Min tegneproces</h2>
           <div className="work-grid">
             {processVideos.map((video, index) => (
-              <div key={index} className="work-item" {...openProps(video.url, video.title)}>
-                <ThumbVideo src={video.url} />
+              <div key={index} className="work-item" {...openProps(video.full, video.title)}>
+                <ThumbVideo src={video.thumb} />
               </div>
             ))}
           </div>
@@ -263,7 +299,7 @@ function App() {
 
       <section className="gallery-section">
         <div className="section-content">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Udvalgte plakater</h2>
+          <h2 style={{ marginBottom: '3rem' }}>Udvalgte plakater</h2>
           <div className="swiper-container-relative" style={{ position: 'relative' }}>
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
@@ -343,13 +379,7 @@ function App() {
         >
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             {selectedImage.endsWith('.mp4') ? (
-              <video
-                src={selectedImage}
-                controls
-                autoPlay
-                loop
-                style={{ maxWidth: '100%', maxHeight: '90vh', borderRadius: '10px', border: '4px solid white' }}
-              />
+              <LightboxVideo src={selectedImage} />
             ) : (
               <img src={selectedImage} alt="Fuld størrelse" />
             )}
