@@ -234,6 +234,22 @@ function App() {
                 <img src={moesgaardBookmarks} alt="Moesgaard bogmærker" />
               </div>
             </div>
+            <blockquote className="exhibition-quote">
+              <span className="exhibition-quote-meta">
+                <span className="exhibition-quote-label">Instagram</span> - Moesgaard
+              </span>
+              <p className="exhibition-quote-text">
+                “Familie er ikke bare noget, vi er, men noget, vi gør”
+              </p>
+              <a
+                className="article-button"
+                href="https://www.instagram.com/p/DK-MbF8p_Wm/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Se opslaget
+              </a>
+            </blockquote>
           </div>
 
           <div className="exhibition-block" style={{ marginTop: '5rem' }}>
@@ -260,18 +276,22 @@ function App() {
                 <ThumbVideo src={containerOpeningThumb} />
               </div>
             </div>
-            <div className="exhibition-articles">
-              <span className="exhibition-articles-label">I medierne</span>
+            <blockquote className="exhibition-quote">
+              <span className="exhibition-quote-meta">
+                <span className="exhibition-quote-label">Artikel</span> - Ryk Ind Ribe
+              </span>
+              <p className="exhibition-quote-text">
+                “Jeg får lov til at bruge min egen streg, som jeg kalder for kruseduller, til at formidle nogle større fortællinger”
+              </p>
               <a
-                className="article-link"
+                className="article-button"
                 href="https://rykindribe.dk/artikler/kulturer-kunst-og-udsyn-anna-tora-holm-lund/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Kulturer, kunst og udsyn
-                <span className="article-link-source">· Ryk Ind Ribe</span>
+                Læs hele artiklen
               </a>
-            </div>
+            </blockquote>
           </div>
         </div>
       </section>

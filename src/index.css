@@ -324,54 +324,81 @@ section {
   font-size: 1.1rem;
 }
 
-/* Artikler / omtale pr. udstilling */
-.exhibition-articles {
-  margin-top: 2rem;
+/* Citatboks pr. udstilling */
+.exhibition-quote {
+  position: relative;
+  margin: 2.5rem 0 0;
+  max-width: 720px;
+  padding-left: 1.9rem;
 }
 
-.exhibition-articles-label {
+/* Skæv, håndtegnet lodret streg */
+.exhibition-quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%207%20100'%20preserveAspectRatio='none'%3E%3Cpath%20d='M3.5%201%20C1.3%2014%205.6%2026%203.5%2039%20C1.4%2052%205.6%2064%203.5%2077%20C1.5%2090%205%2095%203.5%2099'%20fill='none'%20stroke='%23f07700'%20stroke-width='3.5'%20stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.exhibition-quote-meta {
   display: block;
+  margin-bottom: 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.exhibition-quote-label {
   font-family: var(--font-heading);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  opacity: 0.8;
-  margin-bottom: 0.6rem;
 }
 
-.article-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
+.exhibition-quote-text {
   font-family: var(--font-body);
+  font-size: 1.4rem;
   font-weight: 700;
-  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.45;
   color: white;
-  text-decoration: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: 1.5rem;
 }
 
-.article-link::after {
-  content: '→';
-  transition: transform 0.2s;
-}
-
-.article-link:hover {
+/* "Læs hele artiklen" som en af de sjove wobbly-knapper */
+.article-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: white;
   color: var(--accent-color);
-  border-color: var(--accent-color);
+  text-decoration: none;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  border: 3px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 6px 6px 0px var(--orange-color);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.article-link:hover::after {
-  transform: translateX(4px);
+.article-button::after {
+  content: '→';
 }
 
-.article-link-source {
-  font-weight: 500;
-  font-size: 0.95rem;
-  opacity: 0.75;
+.article-button:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 9px 9px 0px var(--secondary-color);
+  color: var(--orange-color);
 }
+
 
 /* Video Sektion */
 .videos-section {
@@ -542,6 +569,8 @@ section {
   
   .info-text { font-size: 1rem; }
   .exhibition-text p { font-size: 0.95rem; }
+  .exhibition-quote { padding-left: 1.4rem; }
+  .exhibition-quote-text { font-size: 1.15rem; }
   
   .social-button { font-size: 1.1rem; padding: 0.6rem 1.5rem; }
   
