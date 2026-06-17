@@ -171,10 +171,10 @@ function App() {
               Jeg er optaget af menneskers historier, erfaringer og perspektiver, og af hvordan visuel formidling kan skabe forståelse, dialog og forbindelse mellem mennesker. Gennem mit arbejde kombinerer jeg kreativitet, nysgerrighed og et antropologisk blik for at omsætte idéer og budskaber til visuelle fortællinger.
             </p>
             <p className="info-text">
-              Jeg har grundlagt <strong>TÓRA TEGNER</strong>, hvor jeg arbejder med kunst og visuel formidling, der hjælper organisationer, virksomheder og projekter med at kommunikere deres værdier, engagement og den forskel, de skaber.
+              Jeg har grundlagt <strong>TÓRA TEGNER</strong> for at hjælpe organisationer, projekter og initiativer med at kommunikere klart, menneskeligt og visuelt.
             </p>
             <p className="info-text">
-              Jeg ønsker særligt at samarbejde med kulturelle, sociale og bæredygtige initiativer, som ønsker at gøre deres budskaber more synlige, menneskelige og engagerende.
+              Jeg samarbejder særligt med kulturelle, sociale og bæredygtige aktører, som ønsker at styrke deres fortælling og skabe større synlighed og forbindelse til deres målgrupper.
             </p>
           </div>
         </div>
