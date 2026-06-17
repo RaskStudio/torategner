@@ -642,3 +642,28 @@ section {
   .hero-logo { font-size: 2.8rem; }
   .social-button span { font-size: 1.1rem; }
 }
+
+/* Respekter brugere der har slået bevægelse fra */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .profile-img {
+    animation: none;
+  }
+}
+
+/* Synligt tastatur-fokus på interaktive elementer */
+.work-item:focus-visible,
+.gallery-item:focus-visible,
+.social-button:focus-visible,
+.contact-row:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 4px;
+}

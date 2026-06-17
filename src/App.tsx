@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -34,6 +34,31 @@ import phoneIkon from './assets/phone_ikon.png'
 
 function App() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  // Luk lightbox med Escape-tasten
+  useEffect(() => {
+    if (!selectedImage) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedImage(null)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [selectedImage])
+
+  // Gør et klikbart medie til en rigtig knap (mus + tastatur)
+  const openProps = (url: string, label: string) => ({
+    role: 'button',
+    tabIndex: 0,
+    'aria-label': `Åbn ${label} i stor visning`,
+    style: { cursor: 'pointer' },
+    onClick: () => setSelectedImage(url),
+    onKeyDown: (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        setSelectedImage(url)
+      }
+    },
+  })
 
   const galleryImages = [
     { url: cykelPlakat, title: "Cykel plakat" },
@@ -107,25 +132,25 @@ function App() {
           <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Tidligere arbejde</h2>
           <div className="work-grid">
             <div className="work-card">
-              <div className="work-item" onClick={() => setSelectedImage(peerPartnerskabetVideo)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(peerPartnerskabetVideo, 'PeerPartnerskabet')}>
                 <video src={`${peerPartnerskabetVideo}#t=0.001`} muted loop autoPlay playsInline />
               </div>
               <p className="work-item-title">PeerPartnerskabet</p>
             </div>
             <div className="work-card">
-              <div className="work-item" onClick={() => setSelectedImage(urkVideo)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(urkVideo, 'URK Odense')}>
                 <video src={`${urkVideo}#t=0.001`} muted loop autoPlay playsInline />
               </div>
               <p className="work-item-title">URK Odense</p>
             </div>
             <div className="work-card">
-              <div className="work-item" onClick={() => setSelectedImage(moesgaardImg)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(moesgaardImg, 'Moesgaard')}>
                 <img src={moesgaardImg} alt="Moesgaard" />
               </div>
               <p className="work-item-title">Moesgaard</p>
             </div>
             <div className="work-card">
-              <div className="work-item" onClick={() => setSelectedImage(muskelsvindsfondenVideo)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(muskelsvindsfondenVideo, 'Muskelsvindsfonden')}>
                 <video src={`${muskelsvindsfondenVideo}#t=0.001`} muted loop autoPlay playsInline />
               </div>
               <p className="work-item-title">Muskelsvinds<span className="mobile-break">-</span><br className="mobile-only-br" />fonden</p>
@@ -149,10 +174,10 @@ function App() {
               </p>
             </div>
             <div className="work-grid">
-              <div className="work-item" onClick={() => setSelectedImage(moesgaardImg)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(moesgaardImg, 'Moesgaard')}>
                 <img src={moesgaardImg} alt="Moesgaard" />
               </div>
-              <div className="work-item" onClick={() => setSelectedImage(moesgaardBookmarks)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(moesgaardBookmarks, 'Moesgaard bogmærker')}>
                 <img src={moesgaardBookmarks} alt="Moesgaard bogmærker" />
               </div>
             </div>
@@ -176,10 +201,10 @@ function App() {
             </div>
             
             <div className="work-grid" style={{ marginTop: '3rem' }}>
-              <div className="work-item" onClick={() => setSelectedImage(containerProces)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(containerProces, 'ContainerKUNST proces')}>
                 <video src={`${containerProces}#t=0.001`} muted loop autoPlay playsInline />
               </div>
-              <div className="work-item" onClick={() => setSelectedImage(containerOpening)} style={{ cursor: 'pointer' }}>
+              <div className="work-item" {...openProps(containerOpening, 'ContainerKUNST åbning')}>
                 <video src={`${containerOpening}#t=0.001`} muted loop autoPlay playsInline />
               </div>
             </div>
@@ -192,8 +217,8 @@ function App() {
           <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Min tegneproces</h2>
           <div className="work-grid">
             {processVideos.map((video, index) => (
-              <div key={index} className="work-item" style={{ cursor: 'pointer' }} onClick={() => setSelectedImage(video.url)}>
-                <video 
+              <div key={index} className="work-item" {...openProps(video.url, video.title)}>
+                <video
                   src={`${video.url}#t=0.001`} 
                   autoPlay
                   muted
@@ -228,7 +253,7 @@ function App() {
             >
               {galleryImages.map((img, index) => (
                 <SwiperSlide key={index}>
-                  <div className="gallery-item" onClick={() => setSelectedImage(img.url)} style={{ cursor: 'pointer' }}>
+                  <div className="gallery-item" {...openProps(img.url, img.title)}>
                     <img src={img.url} alt={img.title} loading="lazy" />
                     <p className="gallery-item-title">{img.title}</p>
                   </div>
@@ -279,20 +304,30 @@ function App() {
       </footer>
 
       {selectedImage && (
-        <div className="lightbox" onClick={() => setSelectedImage(null)}>
-          <div className="lightbox-content">
+        <div
+          className="lightbox"
+          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Medie i stor visning"
+        >
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             {selectedImage.endsWith('.mp4') ? (
-              <video 
-                src={selectedImage} 
-                controls 
-                autoPlay 
-                loop 
-                style={{ maxWidth: '100%', maxHeight: '90vh', borderRadius: '10px', border: '4px solid white' }} 
+              <video
+                src={selectedImage}
+                controls
+                autoPlay
+                loop
+                style={{ maxWidth: '100%', maxHeight: '90vh', borderRadius: '10px', border: '4px solid white' }}
               />
             ) : (
               <img src={selectedImage} alt="Fuld størrelse" />
             )}
-            <button className="close-lightbox">&times;</button>
+            <button
+              className="close-lightbox"
+              onClick={() => setSelectedImage(null)}
+              aria-label="Luk"
+            >&times;</button>
           </div>
         </div>
       )}
