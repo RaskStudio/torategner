@@ -168,7 +168,7 @@ function App() {
           <div className="hero-text-container">
             <p className="hero-sub">Personlige kruseduller</p>
             <p className="hero-text">
-              Kunst og visuel formidling særligt målrettet organisationer, virksomheder og sociale projekter med at kommunikere deres værdier, engagement og den forskel de skaber.
+              Kunst og visuel formidling særligt målrettet organisationer, virksomheder og sociale projekter der ønsker at kommunikere deres værdier, engagement og den forskel de skaber.
             </p>
             <div className="hero-social">
               <a href="https://www.instagram.com/tora_tegner/" target="_blank" rel="noopener noreferrer" className="social-button">
