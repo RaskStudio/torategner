@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -31,6 +31,42 @@ import instagramIkon from './assets/instagram_ikon.png'
 import mailIkon from './assets/mail_ikon.png'
 import linkedinIkon from './assets/linkedin_ikon.png'
 import phoneIkon from './assets/phone_ikon.png'
+
+// Thumbnail-video der kun afspiller når den er synlig på skærmen.
+// Sparer data og batteri på mobil, hvor mange videoer ellers kører samtidig.
+function ThumbVideo({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = ref.current
+    if (!video) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {})
+        } else {
+          video.pause()
+        }
+      },
+      { threshold: 0.25 }
+    )
+
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <video
+      ref={ref}
+      src={`${src}#t=0.001`}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+    />
+  )
+}
 
 function App() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -133,13 +169,13 @@ function App() {
           <div className="work-grid">
             <div className="work-card">
               <div className="work-item" {...openProps(peerPartnerskabetVideo, 'PeerPartnerskabet')}>
-                <video src={`${peerPartnerskabetVideo}#t=0.001`} muted loop autoPlay playsInline />
+                <ThumbVideo src={peerPartnerskabetVideo} />
               </div>
               <p className="work-item-title">PeerPartnerskabet</p>
             </div>
             <div className="work-card">
               <div className="work-item" {...openProps(urkVideo, 'URK Odense')}>
-                <video src={`${urkVideo}#t=0.001`} muted loop autoPlay playsInline />
+                <ThumbVideo src={urkVideo} />
               </div>
               <p className="work-item-title">URK Odense</p>
             </div>
@@ -151,7 +187,7 @@ function App() {
             </div>
             <div className="work-card">
               <div className="work-item" {...openProps(muskelsvindsfondenVideo, 'Muskelsvindsfonden')}>
-                <video src={`${muskelsvindsfondenVideo}#t=0.001`} muted loop autoPlay playsInline />
+                <ThumbVideo src={muskelsvindsfondenVideo} />
               </div>
               <p className="work-item-title">Muskelsvinds<span className="mobile-break">-</span><br className="mobile-only-br" />fonden</p>
             </div>
@@ -202,10 +238,10 @@ function App() {
             
             <div className="work-grid" style={{ marginTop: '3rem' }}>
               <div className="work-item" {...openProps(containerProces, 'ContainerKUNST proces')}>
-                <video src={`${containerProces}#t=0.001`} muted loop autoPlay playsInline />
+                <ThumbVideo src={containerProces} />
               </div>
               <div className="work-item" {...openProps(containerOpening, 'ContainerKUNST åbning')}>
-                <video src={`${containerOpening}#t=0.001`} muted loop autoPlay playsInline />
+                <ThumbVideo src={containerOpening} />
               </div>
             </div>
           </div>
@@ -218,13 +254,7 @@ function App() {
           <div className="work-grid">
             {processVideos.map((video, index) => (
               <div key={index} className="work-item" {...openProps(video.url, video.title)}>
-                <video
-                  src={`${video.url}#t=0.001`} 
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
+                <ThumbVideo src={video.url} />
               </div>
             ))}
           </div>

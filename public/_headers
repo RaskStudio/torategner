@@ -1,0 +1,14 @@
+# Cloudflare Pages headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Vite-genererede assets har hash i filnavnet og ændrer sig aldrig
+# -> cache aggressivt i ét år
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sikkerheds-headere på alle sider
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
