@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://torategner.dk/sitemap.xml
