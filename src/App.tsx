@@ -1,17 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import './index.css'
 
 // Import billeder
 import annaTora from './assets/Anna Tora.png'
-import cykelPlakat from './assets/Cykel plakat.jpg'
-import lisePlakat from './assets/Lise plakat.jpg'
-import skeletPlakat from './assets/Skelet.jpg'
-import toPersonerPlakat from './assets/To personer plakat.jpg'
 import moesgaardImg from './assets/Moesgaard.jpg'
 import moesgaardBookmarks from './assets/Moesgaard bogmærker.jpg'
 
@@ -132,13 +123,6 @@ function App() {
       }
     },
   })
-
-  const galleryImages = [
-    { url: cykelPlakat, title: "Cykel plakat" },
-    { url: lisePlakat, title: "Lise plakat" },
-    { url: skeletPlakat, title: "Skelet" },
-    { url: toPersonerPlakat, title: "To personer" }
-  ]
 
   const processVideos = [
     { thumb: tegneproces1Thumb, full: tegneproces1Full, title: "Tegneproces I" },
@@ -293,41 +277,6 @@ function App() {
                 <ThumbVideo src={video.thumb} />
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="gallery-section">
-        <div className="section-content">
-          <h2 style={{ marginBottom: '3rem' }}>Udvalgte plakater</h2>
-          <div className="swiper-container-relative" style={{ position: 'relative' }}>
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={30}
-              slidesPerView={1}
-              navigation={{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              }}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-              }}
-              className="mySwiper"
-            >
-              {galleryImages.map((img, index) => (
-                <SwiperSlide key={index}>
-                  <div className="gallery-item" {...openProps(img.url, img.title)}>
-                    <img src={img.url} alt={img.title} loading="lazy" />
-                    <p className="gallery-item-title">{img.title}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
           </div>
         </div>
       </section>
