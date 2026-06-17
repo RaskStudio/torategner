@@ -133,10 +133,6 @@ function App() {
 
   return (
     <div className="app">
-      <div className="sticky-banner">
-        Midlertidig side – jeg arbejder på den fulde oplevelse 🎨
-      </div>
-
       <section className="hero">
         <div className="section-content hero-grid">
           <h1 className="hero-logo">Tóra Tegner</h1>
