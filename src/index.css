@@ -400,6 +400,486 @@ section {
 }
 
 
+/* Til salg Sektion */
+.sale-section {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+}
+
+.sale-intro {
+  max-width: 720px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 3.5rem;
+}
+
+.sale-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .sale-grid {
+    gap: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sale-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3.5rem 2rem;
+  }
+}
+
+.sale-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* nulstil knap-styling – hele kortet er nu en klikbar knap */
+  appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Selve fotoet i en skæv, håndtegnet ramme (samme stil som resten af sitet).
+   Fast 3:4-format så alle kort har præcis samme billedhøjde. Billederne er
+   allerede 3:4, så der beskæres ikke noget. */
+.sale-media {
+  position: relative;
+  background: white;
+  border: 3px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 10px 10px 0px var(--orange-color);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  transition: all 0.4s ease;
+}
+
+.sale-card:hover .sale-media,
+.sale-card:hover .bundle-media {
+  transform: translateY(-5px);
+  box-shadow: 15px 15px 0px var(--secondary-color);
+}
+
+.sale-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* "Solgt"-stempel */
+.sale-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-color);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border: 2px solid white;
+  border-radius: 6px;
+  transform: rotate(-6deg);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sale-card.is-sold .sale-media img {
+  filter: grayscale(0.6);
+  opacity: 0.7;
+}
+
+/* Miniaturer når et værk har flere fotos */
+.sale-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.sale-thumb {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  background: white;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.sale-thumb:hover {
+  transform: translateY(-2px);
+}
+
+.sale-thumb.is-active {
+  border-color: var(--orange-color);
+}
+
+.sale-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sale-info {
+  text-align: center;
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Tilbuds-kort: Musik-serien samlet */
+.bundle-media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--accent-color);
+  border: 3px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 10px 10px 0px var(--orange-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 1.5rem 1.1rem;
+  transition: all 0.4s ease;
+}
+
+.bundle-tag {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  background: var(--orange-color);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid white;
+  border-radius: 6px;
+  transform: rotate(-5deg);
+}
+
+.bundle-heading {
+  font-family: var(--font-heading);
+  color: white;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.bundle-thumbs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.bundle-thumb {
+  flex: 1 1 0;
+  max-width: 31%;
+  padding: 0;
+  background: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3 / 4;
+  transition: transform 0.2s;
+}
+
+.bundle-thumb:hover {
+  transform: translateY(-3px);
+}
+
+.bundle-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bundle-old {
+  text-decoration: line-through;
+  opacity: 0.55;
+  font-size: 0.95rem;
+  margin-right: 0.4rem;
+  color: var(--text-color);
+}
+
+.sale-note {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--accent-color);
+  opacity: 0.85;
+  margin-bottom: 0.6rem;
+}
+
+.sale-title {
+  margin-bottom: 0.4rem;
+}
+
+.sale-meta {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 0.6rem;
+}
+
+.sale-price {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--orange-color);
+  margin-top: auto; /* skubber pris + knap ned i bunden så kort flugter */
+  margin-bottom: 1.4rem;
+}
+
+.sale-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* Køb-knap – samme wobbly stil som "Læs hele artiklen" */
+.sale-buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: white;
+  color: var(--accent-color);
+  text-decoration: none;
+  padding: 0.7rem 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  border: 3px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 6px 6px 0px var(--orange-color);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sale-buy:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 9px 9px 0px var(--secondary-color);
+  color: var(--orange-color);
+}
+
+.sale-buy.is-disabled {
+  background: var(--secondary-color);
+  color: white;
+  border-color: var(--text-color);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+  cursor: not-allowed;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sale-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  opacity: 0.75;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.sale-ig:hover {
+  opacity: 1;
+}
+
+.sale-ig img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Popup med værkets detaljer + kontakt */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-color);
+  border: 5px solid var(--text-color);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  box-shadow: 18px 18px 0px var(--orange-color);
+  padding: 2.6rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 2.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 700px) {
+  .detail {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+.detail-media {
+  text-align: center;
+}
+
+.detail-photo {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border: 3px solid var(--text-color);
+  border-radius: 12px;
+  background: white;
+}
+
+.detail-info {
+  text-align: center;
+}
+
+.detail-title {
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 1.9rem;
+  color: var(--accent-color);
+  margin-bottom: 0.6rem;
+}
+
+.detail-price {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  color: var(--orange-color);
+  margin: 1rem 0 1.6rem;
+}
+
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Musik-serien i popup: de tre værker side om side */
+.bundle-detail-media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.bundle-detail-item {
+  margin: 0;
+}
+
+.bundle-detail-item img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--text-color);
+  border-radius: 10px;
+  background: white;
+}
+
+.bundle-detail-item figcaption {
+  margin-top: 0.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+}
+
+/* Til salg – teaser på forsiden. Følger samme venstrestillede opbygning som de
+   øvrige sektioner (overskrift centreres kun på mobil via den globale regel). */
+.sale-teaser {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+}
+
+.sale-teaser-text {
+  max-width: 720px;
+  margin: 0 0 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Forhåndsvisninger bruger samme work-grid som de øvrige sektioner, så
+   billederne har præcis samme størrelse. Her blot afstand under griddet. */
+.sale-teaser-previews {
+  margin-bottom: 2.8rem;
+}
+
+/* Salgssiden (#til-salg) */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.back-link:hover {
+  transform: translateX(-5px);
+}
+
+.sale-page-title {
+  font-size: 4rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
 /* Video Sektion */
 .videos-section {
   background-color: var(--bg-color);
@@ -592,6 +1072,33 @@ section {
     margin-top: 0.8rem;
   }
 
+  .sale-intro { font-size: 1rem; margin-bottom: 2.5rem; }
+  .sale-grid { gap: 2.2rem 1rem; }
+  .sale-info { margin-top: 1rem; }
+  .sale-title { font-size: 1.1rem; }
+  .sale-meta { font-size: 0.8rem; }
+  .sale-note { font-size: 0.78rem; }
+  .sale-price { font-size: 1.1rem; margin-bottom: 1rem; }
+  .sale-buy {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 0.55rem 0.8rem;
+    white-space: normal;
+    line-height: 1.2;
+  }
+  .sale-ig { font-size: 0.8rem; }
+  .sale-ig img { width: 18px; height: 18px; }
+  .sale-thumb { width: 48px; height: 48px; }
+  .sale-teaser-text { font-size: 1rem; }
+  .sale-page-title { font-size: 2.8rem; }
+
+  .modal-content { padding: 2.2rem 1.2rem; box-shadow: 12px 12px 0px var(--orange-color); }
+  .detail { gap: 1.5rem; }
+  .detail-photo { max-height: 50vh; }
+  .detail-title { font-size: 1.5rem; }
+  .detail-price { font-size: 1.5rem; margin: 0.8rem 0 1.3rem; }
+
   .contact-box { padding: 3rem 1.25rem; margin: 0 1rem; }
   .contact-row { gap: 1rem; }
   .contact-row img { width: 40px; height: 40px; }
@@ -623,6 +1130,11 @@ section {
 
 /* Synligt tastatur-fokus på interaktive elementer */
 .work-item:focus-visible,
+.sale-card:focus-visible,
+.sale-thumb:focus-visible,
+.sale-buy:focus-visible,
+.sale-ig:focus-visible,
+.modal-close:focus-visible,
 .social-button:focus-visible,
 .contact-row:focus-visible {
   outline: 3px solid var(--text-color);
