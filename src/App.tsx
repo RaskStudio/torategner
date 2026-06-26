@@ -423,9 +423,7 @@ function SalePage() {
           <a className="back-link" href="#">← Tilbage til forsiden</a>
           <h1 className="sale-page-title">Til salg</h1>
           <p className="sale-intro">
-            Et udvalg af originale, signerede prints fra ContainerKUNST i Esbjerg.
-            Hvert værk har sin egen størrelse og pris. Der er ingen webshop – tryk på
-            et værk for at se mere og skrive til mig.
+            Nåede du ikke forbi ContainerKUNST – eller kunne du tænke dig et værk?
           </p>
 
           <div className="sale-grid">
